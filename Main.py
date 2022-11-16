@@ -4,6 +4,7 @@ from Pojistenec import Pojistenec
 seznam_pojistencu = []
 pokracovat = True
 
+
 while pokracovat == True:
 
         print("--------------------")
@@ -21,11 +22,14 @@ while pokracovat == True:
         if volba == 1:
                 jmeno = input("Zadejte jméno pojištěného:\n ").capitalize()
                 prijmeni = input("Zadejte přijmení pojištěného:\n  ").capitalize()
-                try:
-                        vek = int(input("Zadejte věk pojištěného:\n "))
-                except:
-                        print("Nesprávný vstup, zadejte platné číslo")
-                        exit()
+
+                while True:  #ošetření zadání věku jako čísla
+                        try:
+                                vek = int(input("Zadejte věk pojištěného:\n "))
+                                break
+                        except ValueError:
+                                print("Nesprávný vstup, zadejte platné číslo")
+
                 telefon = input("Zadejte telefon pojištěného:\n  ")
                 email = input("Zadejte e-mail:\n  ")
                 ulice = input("Zadejte ulici a číslo popisné:\n  ")
